@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSP Downloader Introduction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LSP Downloader Introduction</h1>
+        <p>Welcome to the LSP Downloader! This tool allows you to easily download and manage library code for your SPIKE hub.</p>
+        <h2>How It Works</h2>
+        <p>The LSP Downloader uses a function called <code>exportProgram</code> to save library code to your SPIKE hub. Here's the code that makes it happen:</p>
+        <pre><code>
+def exportProgram(code, module): # Function to export the library code string
+    import os
+    os.listdir("/flash")
+    os.chdir('/flash') # change directory to root
+    try:
+        os.remove(module+".py") # remove any existing library file of the same name
+    except:
+        pass
+    f = open(module+".py", 'w+') # Create a new file customlib.py in the SPIKE hub root
+    f.write(code) # Write out the library code string to the customlib.py file
+    f.close()
+code="""..."""
+module=""
+exportProgram(code, module)
+        </code></pre>
+        <p>This code is saved in slot 19 of your SPIKE hub and can be used to download and manage your libraries efficiently.</p>
+        <h2>Features</h2>
+        <ul>
+            <li>Automatically removes existing library files with the same name</li>
+            <li>Creates a new file in the SPIKE hub root directory</li>
+            <li>Writes the library code to the newly created file</li>
+        </ul>
+        <p>Start using the LSP Downloader today to streamline your SPIKE hub library management!</p>
+    </div>
+</body>
+</html>
