@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LSP Downloader Introduction to SPIKE hub library management. Learn how to export library code and manage it with ease.">
+    <meta name="author" content="Your Name or Company">
+    <meta name="keywords" content="SPIKE, LSP Downloader, library management, programming, code export">
     <title>LSP Downloader Introduction</title>
     <style>
         body {
@@ -20,7 +23,7 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        h1 {
+        h1, h2 {
             color: #333;
         }
         pre {
@@ -28,6 +31,23 @@
             padding: 10px;
             border-radius: 5px;
             overflow-x: auto;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        code {
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        footer {
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            text-align: center;
         }
     </style>
 </head>
@@ -35,33 +55,42 @@
     <div class="container">
         <h1>LSP Downloader Introduction</h1>
         <p>Welcome to the LSP Downloader! This tool allows you to easily download and manage library code for your SPIKE hub.</p>
+        
         <h2>How It Works</h2>
         <p>The LSP Downloader uses a function called <code>exportProgram</code> to save library code to your SPIKE hub. Here's the code that makes it happen:</p>
+        
         <pre><code>
-def exportProgram(code, module): # Function to export the library code string
+def exportProgram(code, module):  # Function to export the library code string
     import os
     os.listdir("/flash")
-    os.chdir('/flash') # change directory to root
+    os.chdir('/flash')  # Change directory to root
     try:
-        os.remove(module+".py") # remove any existing library file of the same name
+        os.remove(module + ".py")  # Remove any existing library file with the same name
     except:
         pass
-    f = open(module+".py", 'w+') # Create a new file customlib.py in the SPIKE hub root
-    f.write(code) # Write out the library code string to the customlib.py file
-    f.close()
-code="""..."""
-module=""
+    with open(module + ".py", 'w+') as f:  # Create a new file in the SPIKE hub root
+        f.write(code)  # Write out the library code string to the customlib.py file
+    # No need to close the file explicitly when using 'with' statement
+
+code = """..."""
+module = ""
 exportProgram(code, module)
         </code></pre>
+
         <p>This code is saved in slot 19 of your SPIKE hub and can be used to download and manage your libraries efficiently.</p>
+        
         <h2>Features</h2>
         <ul>
             <li>Automatically removes existing library files with the same name</li>
             <li>Creates a new file in the SPIKE hub root directory</li>
             <li>Writes the library code to the newly created file</li>
         </ul>
+
         <p>Start using the LSP Downloader today to streamline your SPIKE hub library management!</p>
     </div>
-    <p>Run it by importing the module name similar to the top of my krisvih32/API</p>
+
+    <footer>
+        <p>Run the downloader by importing the module, similar to how you would with krisvih32/API.</p>
+    </footer>
 </body>
 </html>
